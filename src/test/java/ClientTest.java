@@ -63,4 +63,11 @@ public void getId_clientsInstantiateWithAnID() {
     secondClient.save();
     assertEquals(Client.find(secondClient.getId()), secondClient);
   }
+
+  @Test
+public void equals_returnsTrueIfDescriptionsAretheSame() {
+  Client firstClient = new Client("Vivian", 1);
+  Client secondClient = new Client("Opondoh", 1);
+  assertTrue(firstClient.equals(secondTask));
+}
 }
