@@ -76,4 +76,11 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
  public void find_returnsNullWhenNoClientFound_null() {
    assertTrue(Stylist.find(999) == null);
  }
+
+ @Test
+     public void equals_returnsTrueIfNamesAretheSame() {
+       Stylist firstStylist = new Stylist("Household chores");
+       Stylist secondStylist = new Stylist("Household chores");
+       assertTrue(firstStylist.equals(secondStylist));
+     }
 }
