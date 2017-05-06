@@ -9,8 +9,9 @@ public class Client {
   private int stylistId;
 
 //constructor
-  public Client(String name) {
+  public Client(String name, int stylistId) {
     this.name = name;
+    this.stylistId = stylistId;
   }
 
   //implements getName()

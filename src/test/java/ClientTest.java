@@ -6,6 +6,11 @@ import java.time.LocalDateTime;
 public class ClientTest {
   private Client mClient;
   @Before
+  public void instantiate() {
+    mClient = new Client("Vivian", 1);
+  }
+
+  @Before
       public void setUp() {
         DB.sql2o = new Sql2o("jdbc:postgresql://localhost:5432/hair_salon_test", "postgres", "postgres");
       }
@@ -19,10 +24,7 @@ public class ClientTest {
           }
         }
 
-        @Before
-        public void instantiate() {
-          mClient = new Client("Vivian", 1);
-        }
+
 
         @Test
         public void Client_instantiatesCorrectly_true() {
@@ -76,4 +78,21 @@ public void save_returnsTrueIfNamesAretheSame() {
   mClient.save();
   assertTrue(Client.all().get(0).equals(mClient));
 }
+
+@Test
+public void save_assignsIdToObject() {
+  mClient.save();
+  Task savedClient = Client.all().get(0);
+  assertEquals(myClient.getId(), savedClient.getId());
+}
+
+@Test
+     public void save_savesStylistIdIntoDB_true() {
+      Stylist  myStylist = new Stylist("Qwemba");
+       myStylist.save();
+       Client myClient = new Client("Vivian", myStylist.getId());
+       myClient.save();
+       Client savedClient = Client.find(myClient.getId());
+       assertEquals(savedClient.getStylistId(), mySylist.getId());
+     }
 }
