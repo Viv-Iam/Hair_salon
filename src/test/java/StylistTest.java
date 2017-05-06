@@ -58,6 +58,11 @@ public class StylistTest {
   }
 
   @Test
+public void getClients_initiallyReturnsEmptyList_ArrayList() {
+  assertEquals(0, mStylist.getClients().size());
+}
+
+  @Test
   public void find_returnsStylistWithSameId_secondStylist() {
     // Category.clear();
     Stylist firstStylist = new Stylist("Qwemba");
