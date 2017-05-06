@@ -25,9 +25,15 @@ public class CategoryTest {
           con.createQuery(deleteStlistsQuery).executeUpdate();
         }
       }
+
       @Test
-      public void category_instantiatesCorrectly_true() {
-        assertEquals(true, testCategory instanceof Category);
+      public void stylist_instantiatesCorrectly_true() {
+        assertEquals(true, mStylist instanceof Stylist);
       }
+
+      @Test
+  public void getName_categoryInstantiatesWithName_String() {
+    assertEquals("Qwemba", mStylist.getName());
+  }
 
 }
