@@ -44,4 +44,15 @@ public class Stylist {
         .executeAndFetch(Client.class);
           }
   }
+
+  public static Stylist find(int id) {
+  try(Connection con = DB.sql2o.open()) {
+          String sql = "SELECT * FROM categories where id=:id";
+          Stylist stylist = con.createQuery(sql)
+            .addParameter("id", id)
+            .executeAndFetchFirst(Stylist.class);
+          return stylist;
+        }
+}
+
 }
