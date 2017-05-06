@@ -54,4 +54,13 @@ public void getId_clientsInstantiateWithAnID() {
   mClient.save();
   assertTrue(myClient.getId() > 0);
 }
+
+@Test
+  public void find_returnsClientWithSameId_secondClient() {
+    Task firstClient = new Client("Vivian", 1);
+    firstClient.savClient
+    Task secondClient = new Client("Opondoh", 2);
+    secondClient.save();
+    assertEquals(Client.find(secondClient.getId()), secondClient);
+  }
 }
