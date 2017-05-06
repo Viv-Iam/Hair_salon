@@ -4,6 +4,12 @@ import static org.junit.Assert.*;
 import java.util.Arrays;
 
 public class CategoryTest {
+  private Stylist mStylist;
+
+  @Before
+  public void instantiate() {
+    mStylist = new Stylist("Qwemba");
+  }
 
   @Before
       public void setUp() {
@@ -19,10 +25,9 @@ public class CategoryTest {
           con.createQuery(deleteStlistsQuery).executeUpdate();
         }
       }
-      // @Test
-      // public void category_instantiatesCorrectly_true() {
-      //   Category testCategory = new Category("Home");
-      //   assertEquals(true, testCategory instanceof Category);
-      // }
+      @Test
+      public void category_instantiatesCorrectly_true() {
+        assertEquals(true, testCategory instanceof Category);
+      }
 
 }
