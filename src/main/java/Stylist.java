@@ -20,4 +20,8 @@ public class Stylist {
           return con.createQuery(sql).executeAndFetch(Stylist.class);
         }
    }
+//implements getId()
+   public int getId() {
+    return id;
+  }
 }
