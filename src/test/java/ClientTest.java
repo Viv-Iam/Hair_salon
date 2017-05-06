@@ -18,4 +18,13 @@ public class ClientTest {
           }
         }
 
+        @Before
+        public void instantiate() {
+          mClient = new Client("Vivi");
+        }
+
+        @Test
+        public void Client_instantiatesCorrectly_true() {
+          assertEquals(true, mClient instanceof Client);
+        }
 }
