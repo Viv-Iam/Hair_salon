@@ -45,4 +45,15 @@ public class StylistTest {
             assertEquals(true, Stylist.all().get(0).equals(firstStylist));
             assertEquals(true, Stylist.all().get(1).equals(secondStylist));
     }
+
+    @Test
+  public void clear_emptiesAllStylistsFromList_0() {
+    assertEquals(Stylist.all().size(), 0);
+}
+
+@Test
+  public void getId_stylistsInstantiateWithAnId_1() {
+       mStylist.save();
+       assertTrue(mStylist.getId() > 0);
+  }
 }
