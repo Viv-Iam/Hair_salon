@@ -33,4 +33,14 @@ public class ClientTest {
         public void lient_instantiatesWithName_String() {
           assertEquals("Vivian", mClient.getName());
 }
+
+@Test
+ public void all_returnsAllInstancesOfClient_true() {
+   Client firstClient = new Client("Vivian");
+   firstClient.save();
+   Client secondClient = new Client("Opondoh");
+   secondClient.save();
+   assertEquals(true, Client.all().get(0).equals(firstClient));
+   assertEquals(true, Client.all().get(1).equals(secondClient));
+ }
 }

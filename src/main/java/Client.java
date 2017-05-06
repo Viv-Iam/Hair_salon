@@ -5,10 +5,14 @@ import org.sql2o.*;
 
 public class Client {
   private String name;
+  private int id;
 
+//constructor
   public Client(String name) {
     this.name = name;
   }
+
+  //implements getName()
   public String getName() {
     return name;
   }
