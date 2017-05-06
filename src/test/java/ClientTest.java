@@ -28,4 +28,9 @@ public class ClientTest {
         public void Client_instantiatesCorrectly_true() {
           assertEquals(true, mClient instanceof Client);
         }
+
+        @Test
+        public void lient_instantiatesWithName_String() {
+          assertEquals("Vivian", myClient.getName());
+}
 }
