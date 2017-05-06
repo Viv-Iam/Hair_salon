@@ -96,4 +96,15 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
                 Stylist savedStylist = Stylist.all().get(0);
                 assertEquals(mStylist.getId(), savedStylist.getId());
               }
+
+              @Test
+      public void getClients_retrievesALlTasksFromDatabase_clientsList() {
+        mStylist.save();
+        Client firstClient = new Client("Mow the lawn", mStylist.getId());
+        firstClient.save();
+        Client secondClient = new Client("Do the dishes", mStylist.getId());
+        secondClient.save();
+        Client[] clients = new Client[] { firstClient, secondClient };
+        assertTrue(mStylist.getClients().containsAll(Arrays.asList(clients)));
+      }
 }
