@@ -3,7 +3,7 @@ apply plugin: 'application'
 
 archivesBaseName = "hair_salon"
 version = '1.0'
-applicationName = "todo"
+applicationName = "hairsalon"
 mainClassName = "App"
 
 repositories {
@@ -18,5 +18,5 @@ compile group: 'org.sql2o', name: 'sql2o', version: '1.5.4'
 compile group: 'org.postgresql', name: 'postgresql', version: "9.4-1201-jdbc41"
 }
 
-defaultTasks = ['clean']
+defaultClients = ['clean']
 task stage(dependsOn: ['clean', 'installApp'])
