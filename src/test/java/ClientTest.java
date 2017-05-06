@@ -48,4 +48,10 @@ public class ClientTest {
 public void clear_emptiesAllClientsFromArrayList_0() {
   assertEquals(Client.all().size(), 0);
 }
+
+@Test
+public void getId_clientsInstantiateWithAnID() {
+  mClient.save();
+  assertTrue(myClient.getId() > 0);
+}
 }
