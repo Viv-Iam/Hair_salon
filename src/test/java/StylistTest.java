@@ -71,4 +71,9 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
        secondStylist.save();
        assertEquals(Stylist.find(secondStylist.getId()), secondStylist);
   }
+
+  @Test
+ public void find_returnsNullWhenNoClientFound_null() {
+   assertTrue(Stylist.find(999) == null);
+ }
 }
