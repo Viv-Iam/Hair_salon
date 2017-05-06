@@ -22,7 +22,7 @@ public class StylistTest {
           String deleteClientsQuery = "DELETE FROM clients *;";
           String deleteStylistsQuery = "DELETE FROM stylists *;";
           con.createQuery(deleteClientsQuery).executeUpdate();
-          con.createQuery(deleteStlistsQuery).executeUpdate();
+          con.createQuery(deleteStylistsQuery).executeUpdate();
         }
       }
 
@@ -79,8 +79,8 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
 
  @Test
      public void equals_returnsTrueIfNamesAretheSame() {
-       Stylist firstStylist = new Stylist("Household chores");
-       Stylist secondStylist = new Stylist("Household chores");
+       Stylist firstStylist = new Stylist("Qwemba");
+       Stylist secondStylist = new Stylist("Awino");
        assertTrue(firstStylist.equals(secondStylist));
      }
 
@@ -98,11 +98,11 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
               }
 
               @Test
-      public void getClients_retrievesALlTasksFromDatabase_clientsList() {
+      public void getClients_retrievesALlClientsFromDatabase_clientsList() {
         mStylist.save();
-        Client firstClient = new Client("Mow the lawn", mStylist.getId());
+        Client firstClient = new Client("Qwemba", mStylist.getId());
         firstClient.save();
-        Client secondClient = new Client("Do the dishes", mStylist.getId());
+        Client secondClient = new Client("Awino", mStylist.getId());
         secondClient.save();
         Client[] clients = new Client[] { firstClient, secondClient };
         assertTrue(mStylist.getClients().containsAll(Arrays.asList(clients)));

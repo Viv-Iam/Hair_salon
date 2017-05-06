@@ -21,7 +21,7 @@ public class ClientTest {
 
         @Before
         public void instantiate() {
-          mClient = new Client("Vivian");
+          mClient = new Client("Vivian", 1);
         }
 
         @Test
@@ -36,13 +36,16 @@ public class ClientTest {
 
 @Test
  public void all_returnsAllInstancesOfClient_true() {
-   Client firstClient = new Client("Vivian");
+   Client firstClient = new Client("Vivian", 1);
    firstClient.save();
-   Client secondClient = new Client("Opondoh");
+   Client secondClient = new Client("Opondoh", 1);
    secondClient.save();
    assertEquals(true, Client.all().get(0).equals(firstClient));
    assertEquals(true, Client.all().get(1).equals(secondClient));
  }
 
- 
+ @Test
+public void clear_emptiesAllClientsFromArrayList_0() {
+  assertEquals(Client.all().size(), 0);
+}
 }
