@@ -31,6 +31,6 @@ public class ClientTest {
 
         @Test
         public void lient_instantiatesWithName_String() {
-          assertEquals("Vivian", myClient.getName());
+          assertEquals("Vivian", mClient.getName());
 }
 }
