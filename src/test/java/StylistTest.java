@@ -36,4 +36,13 @@ public class CategoryTest {
     assertEquals("Qwemba", mStylist.getName());
   }
 
+  @Test
+    public void all_returnsAllInstancesOfStylist_true() {
+    Stylist firstStylist = new Stylist("Home");
+            firstStylist.save();
+            Stylist secondStylist = new Stylist("Work");
+            secondStylist.save();
+            assertEquals(true, Stylist.all().get(0).equals(firstStylist));
+            assertEquals(true, Stylist.all().get(1).equals(secondStylist));
+    }
 }
