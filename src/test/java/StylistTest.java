@@ -32,7 +32,7 @@ public class CategoryTest {
       }
 
       @Test
-  public void getName_categoryInstantiatesWithName_String() {
+  public void getName_stylistInstantiatesWithName_String() {
     assertEquals("Qwemba", mStylist.getName());
   }
 
