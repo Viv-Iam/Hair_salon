@@ -4,5 +4,9 @@ import java.util.List;
 import org.sql2o.*;
 
 public class Client {
+  private String name;
 
+  public Client(String name) {
+    this.name = name;
+  }
 }
