@@ -16,7 +16,7 @@ public class CategoryTest {
           String deleteClientsQuery = "DELETE FROM clients *;";
           String deleteStylistsQuery = "DELETE FROM stylists *;";
           con.createQuery(deleteClientsQuery).executeUpdate();
-          con.createQuery(deleteStylistsQuery).executeUpdate();
+          con.createQuery(deleteStlistsQuery).executeUpdate();
         }
       }
       // @Test
