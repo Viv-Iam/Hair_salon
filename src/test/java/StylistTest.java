@@ -83,4 +83,10 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
        Stylist secondStylist = new Stylist("Household chores");
        assertTrue(firstStylist.equals(secondStylist));
      }
+
+     @Test
+            public void save_savesIntoDatabase_true() {
+              mStylist.save();
+              assertTrue(Stylist.all().get(0).equals(mStylist));
+            }
 }
