@@ -89,4 +89,11 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
               mStylist.save();
               assertTrue(Stylist.all().get(0).equals(mStylist));
             }
+
+            @Test
+              public void save_assignsIdToObject() {
+                mStylist.save();
+                Stylist savedStylist = Stylist.all().get(0);
+                assertEquals(mStylist.getId(), savedStylist.getId());
+              }
 }
