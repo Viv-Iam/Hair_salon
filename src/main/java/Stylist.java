@@ -55,4 +55,14 @@ public class Stylist {
         }
 }
 
+
+public void save() {
+      try(Connection con = DB.sql2o.open()) {
+        String sql = "INSERT INTO categories(name) VALUES (:name)";
+        this.id = (int) con.createQuery(sql, true)
+          .addParameter("name", this.name)
+          .executeUpdate()
+          .getKey();
+        }
+      }
 }
