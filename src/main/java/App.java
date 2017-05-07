@@ -90,13 +90,13 @@ get("/stylists/:stylist_id/tasks/:id", (request, response) -> {
   return new ModelAndView(model, layout);
 }, new VelocityTemplateEngine());
 
-post("/categories/:category_id/tasks/:id/delete", (request, response) -> {
+post("/stylists/:stylist_id/tasks/:id/delete", (request, response) -> {
   HashMap<String, Object> model = new HashMap<String, Object>();
-  Task task = Task.find(Integer.parseInt(request.params("id")));
-  Category category = Category.find(task.getCategoryId());
+  Client client = Client.find(Integer.parseInt(request.params("id")));
+  Stylist stylist = Stylist.find(task.getStylistId());
   task.delete();
-  model.put("category", category);
-  model.put("template", "templates/category.vtl");
+  model.put("stylist", stylist);
+  model.put("template", "templates/stylist.vtl");
   return new ModelAndView(model, layout);
 }, new VelocityTemplateEngine());
 
