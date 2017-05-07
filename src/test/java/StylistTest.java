@@ -80,7 +80,7 @@ public void getClients_initiallyReturnsEmptyList_ArrayList() {
  @Test
      public void equals_returnsTrueIfNamesAretheSame() {
        Stylist firstStylist = new Stylist("Qwemba");
-       Stylist secondStylist = new Stylist("Awino");
+       Stylist secondStylist = new Stylist("Qwemba");
        assertTrue(firstStylist.equals(secondStylist));
      }
 

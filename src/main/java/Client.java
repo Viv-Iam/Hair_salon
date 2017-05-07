@@ -35,6 +35,7 @@ try(Connection con = DB.sql2o.open()) {
     .executeAndFetchFirst(Client.class);
   return client;
 }
+}
 
 
   public static List<Client> all() {
@@ -44,9 +45,21 @@ try(Connection con = DB.sql2o.open()) {
          }
        }
 
+       @Override
+      public boolean equals(Object otherClient){
+        if (!(otherClient instanceof Client)) {
+          return false;
+        } else {
+          Client newClient = (Client) otherClient;
+          return this.getName().equals(newClient.getName()) &&
+                 this.getId() == newClient.getId() &&
+                 this.getStylistId() == newClient.getStylistId();
+        }
+      }
+
        public void save() {
                  try(Connection con = DB.sql2o.open()) {
-                   String sql = "INSERT INTO tasks(description, stylistId) VALUES (:name, :stylistId)";
+                   String sql = "INSERT INTO clients(name, stylistId) VALUES (:name, :stylistId)";
                    this.id = (int) con.createQuery(sql, true)
                      .addParameter("name", this.name)
                      .addParameter("stylistId", this.stylistId)

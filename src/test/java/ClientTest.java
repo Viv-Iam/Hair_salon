@@ -54,14 +54,14 @@ public void clear_emptiesAllClientsFromArrayList_0() {
 @Test
 public void getId_clientsInstantiateWithAnID() {
   mClient.save();
-  assertTrue(myClient.getId() > 0);
+  assertTrue(mClient.getId() > 0);
 }
 
 @Test
   public void find_returnsClientWithSameId_secondClient() {
-    Task firstClient = new Client("Vivian", 1);
-    firstClient.savClient
-    Task secondClient = new Client("Opondoh", 2);
+    Client firstClient = new Client("Vivian", 1);
+    firstClient.save();
+    Client secondClient = new Client("Opondoh", 2);
     secondClient.save();
     assertEquals(Client.find(secondClient.getId()), secondClient);
   }
@@ -69,7 +69,7 @@ public void getId_clientsInstantiateWithAnID() {
   @Test
 public void equals_returnsTrueIfNamesAretheSame() {
   Client firstClient = new Client("Vivian", 1);
-  Client secondClient = new Client("Opondoh", 1);
+  Client secondClient = new Client("Vivian", 1);
   assertTrue(firstClient.equals(secondClient));
 }
 
@@ -82,8 +82,8 @@ public void save_returnsTrueIfNamesAretheSame() {
 @Test
 public void save_assignsIdToObject() {
   mClient.save();
-  Task savedClient = Client.all().get(0);
-  assertEquals(myClient.getId(), savedClient.getId());
+  Client savedClient = Client.all().get(0);
+  assertEquals(mClient.getId(), savedClient.getId());
 }
 
 @Test
@@ -93,7 +93,7 @@ public void save_assignsIdToObject() {
        Client myClient = new Client("Vivian", myStylist.getId());
        myClient.save();
        Client savedClient = Client.find(myClient.getId());
-       assertEquals(savedClient.getStylistId(), mySylist.getId());
+       assertEquals(savedClient.getStylistId(), myStylist.getId());
      }
 
 @Test
