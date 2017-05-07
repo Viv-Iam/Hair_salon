@@ -95,11 +95,19 @@ public void save_assignsIdToObject() {
        Client savedClient = Client.find(myClient.getId());
        assertEquals(savedClient.getStylistId(), mySylist.getId());
      }
-}
 
 @Test
 public void update_updatesClientsName_true() {
  mClient.save();
  mClient.update("Queen");
  assertEquals("Queen", Client.find(mClient.getId()).getName());
+}
+
+@Test
+public void delete_deletesClient_true() {
+  mClient.save();
+  int mClientId = mClient.getId();
+  mClient.delete();
+  assertEquals(null, Client.find(mClientId));
+}
 }
