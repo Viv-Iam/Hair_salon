@@ -7,15 +7,15 @@ import static spark.Spark.*;
 
 public class App {
   public static void main(String[] args) {
-    ProcessBuilder process = new ProcessBuilder();
-         Integer port;
-         if (process.environment().get("PORT") != null) {
-             port = Integer.parseInt(process.environment().get("PORT"));
-         } else {
-             port = 4567;
-         }
-
-        setPort(port);
+    // ProcessBuilder process = new ProcessBuilder();
+    //      Integer port;
+    //      if (process.environment().get("PORT") != null) {
+    //          port = Integer.parseInt(process.environment().get("PORT"));
+    //      } else {
+    //          port = 4567;
+    //      }
+    //
+    //     setPort(port);
 
         staticFileLocation("/public");
             String layout = "templates/layout.vtl";
@@ -50,6 +50,21 @@ get("/stylists", (request, response) -> {
   return new ModelAndView(model, layout);
 }, new VelocityTemplateEngine());
 
+get("/stylists/:id", (request, response) -> {
+  Map<String, Object> model = new HashMap<String, Object>();
+  Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+  model.put("stylist", stylist);
+  model.put("template", "templates/stylist.vtl");
+  return new ModelAndView(model, layout);
+}, new VelocityTemplateEngine());
+
+get("stylists/:id/clients/new", (request, response) -> {
+  Map<String, Object> model = new HashMap<String, Object>();
+  Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
+  model.put("stylist", stylist);
+  model.put("template", "templates/stylist-clients-form.vtl");
+  return new ModelAndView(model, layout);
+}, new VelocityTemplateEngine());
 
 post("/clients", (request, response) -> {
   Map<String, Object> model = new HashMap<String, Object>();
@@ -67,16 +82,7 @@ post("/clients", (request, response) -> {
 
 
 
-
-get("/stylists/:id", (request, response) -> {
-  Map<String, Object> model = new HashMap<String, Object>();
-  Stylist stylist = Stylist.find(Integer.parseInt(request.params(":id")));
-  model.put("stylist", stylist);
-  model.put("template", "templates/stylist.vtl");
-  return new ModelAndView(model, layout);
-}, new VelocityTemplateEngine());
-
-get("/stylists/:stylist_id/tasks/:id", (request, response) -> {
+get("/stylists/:stylist_id/clients/:id", (request, response) -> {
       Map<String, Object> model = new HashMap<String, Object>();
       Stylist stylist = Stylist.find(Integer.parseInt(request.params(":stylist_id")));
       Client client = Client.find(Integer.parseInt(request.params(":id")));
@@ -97,7 +103,7 @@ get("/stylists/:stylist_id/tasks/:id", (request, response) -> {
   return new ModelAndView(model, layout);
 }, new VelocityTemplateEngine());
 
-post("/stylists/:stylist_id/tasks/:id/delete", (request, response) -> {
+post("/stylists/:stylist_id/clients/:id/delete", (request, response) -> {
   HashMap<String, Object> model = new HashMap<String, Object>();
   Client client = Client.find(Integer.parseInt(request.params("id")));
   Stylist stylist = Stylist.find(client.getStylistId());
