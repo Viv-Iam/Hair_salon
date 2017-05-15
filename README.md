@@ -9,7 +9,7 @@ _App made in java language and spark frame work that allows user to input data w
 
 Head to the link  using your favorite browser. Navigate through the page using the navbar.
 
-## Link
+## Link https://beautyparlor.herokuapp.com
 
 
 ## Usage
